@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+// import remarkGfm from "remark-gfm";
 
 import classes from "./post-content.module.css";
 import PostHeader from "./post-header";
@@ -16,7 +17,7 @@ function PostContent(props) {
     // 마크다운이란 어노테이션이 들어간 텍스트
     <article className={classes.content}>
       <PostHeader title={post.title} image={imagePath} />
-      <ReactMarkdown>{post.content}</ReactMarkdown>
+      <ReactMarkdown children={post.content} />
     </article>
   );
 }
