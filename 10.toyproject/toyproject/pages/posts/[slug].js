@@ -1,10 +1,21 @@
 // 슬러그 - 각 게시물에 대해서 쉽게 이해할 수 있고, 검색엔진에 최적화되어 있는 슬러그 식별자를 찾을수 있다
 
+import Head from "next/head";
+import { Fragment } from "react";
+
 import PostContent from "../../components/posts/post-detail/post-content.js";
 import { getPostData, getPostsFiles } from "../../lib/posts-util";
 
 function PostDetailPage(props) {
-  return <PostContent post={props.post} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>{props.post.title}</title>
+        <meta name="description" content={props.post.excerpt} />
+      </Head>
+      <PostContent post={props.post} />;
+    </Fragment>
+  );
 }
 
 export function getStaticProps(context) {
